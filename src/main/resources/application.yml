@@ -1,0 +1,46 @@
+web:
+  uploadPath: D:/courseUpload/
+rocketmq:
+  name-server: 127.0.0.1:9876
+  producer:
+    group: course-group
+    send-message-timeout: 3000
+spring:
+  mail:
+    host: smtp.163.com
+    username: eve20001008@163.com
+    #163邮箱的授权码
+    password: YECGFAFPVIZCKIPT
+    protocol: smtp
+    default-encoding: UTF-8
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/coursedbmongo
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+  servlet:
+    multipart:
+      max-file-size:
+        10MB
+      max-request-size:
+        20MB
+  mvc:
+    static-path-pattern: /pic/**
+  web:
+    resources:
+      static-locations: file:${web.uploadPath}
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/coursedb
+    username: root
+    password:
+    initial-size: 5
+    min-idle: 5
+    max-active: 20
+    max-wait: 60000
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
